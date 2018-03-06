@@ -1,0 +1,44 @@
+Instructions on setting up MySQL database the first time
+
+Connect to MySQL in whichever way works best for you.
+On *nix machines, its usually
+> mysql start
+> mysql -u root -p
+> <Enter Password>
+You should now be in a terminal window that interfaces with MySQL
+
+Create the Database, set it as the current active database
+> create database access;
+> use access;
+
+The next part can be done in two ways. access.sql is set up so that on every use,
+it wipes the database clean and builds it from scratch. This way we can add and remove test and demo data very easily.
+However, you will see an error if the "drop table" statements happen before the table is created in the database.
+
+1. Alter the access.sql file
+    Comment out the "drop table" statements in access.sql
+    Run the .sql file import
+
+2. Create the tables in MySQL with minimal information, so that on the first run, access.sql drops tables that do exist
+    > create table Organizations (
+        > name varchar(64) primary key
+        > );
+    create table Users (
+        > name varchar(64) primary key
+        > );
+    create table Content (
+        > name varchar(64) primary key
+        > );
+
+The information that goes into the tables on first creation does not matter at all.
+They just need minimum one row to be a valid MySQL table.
+If you wanted to, you could copy and paste the create table statements from access.sql and it would get the same thing done
+
+Now import access.sql into your access database
+> source /path/to/access.sql
+If you are in the cs275-final-project directory, you can simply type
+> source access.sql
+
+Whenever a change needs to be made to the database, add it to the access.sql file, and re-import the database.
+Re-importing the database will only be running the following command with an updated access.sql file
+> source access.sql
