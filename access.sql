@@ -4,18 +4,19 @@
 * Access
 */
 
--- Drop Tables
+
 DROP TABLE Content;
 DROP TABLE Users;
 DROP TABLE Organizations;
 
--- Create Tables
+
+-- Create tables
 CREATE TABLE Organizations (
     org_name VARCHAR(64) PRIMARY KEY
 );
 
 CREATE TABLE Users (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    email NVARCHAR(320) PRIMARY KEY,
     username VARCHAR(64) unique NOT NULL,
     user_pass char(64) NOT NULL,
     admin_status BIT default 0,
