@@ -4,19 +4,18 @@
 * Access
 */
 
-
+-- Drop Tables
 DROP TABLE Content;
 DROP TABLE Users;
 DROP TABLE Organizations;
 
-
--- Create tables
+-- Create Tables
 CREATE TABLE Organizations (
     org_name VARCHAR(64) PRIMARY KEY
 );
 
 CREATE TABLE Users (
-    email NVARCHAR(320) PRIMARY KEY,
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(64) unique NOT NULL,
     user_pass char(64) NOT NULL,
     admin_status BIT default 0,
@@ -37,12 +36,15 @@ CREATE TABLE Content (
 
 INSERT INTO Organizations(org_name)
 VALUES
-('CS 275');
+('CS 275'),
+('CS 260');
 
-INSERT INTO Users(email, username, user_pass, admin_status, rank, org_name)
+INSERT INTO Users(username, user_pass, admin_status, rank, org_name)
 VALUES
-('test1@example.com', 'test1', 'test1', 1, 1, 'CS 275');
+('test1', 'test1', 1, 1, 'CS 275'),
+('test2', 'test2', 0, 1, 'CS 275');
 
 INSERT INTO Content(content_name, content_path, necessary_rank, is_archived, org_name)
 VALUES
-('testContent1', './content/content1', 0, 0, 'CS 275');
+('testContent1', './content/content1', 0, 0, 'CS 275'),
+('testContent2', './content/content2', 0, 0, 'CS 275');
