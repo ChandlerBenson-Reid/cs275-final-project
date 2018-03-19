@@ -1,0 +1,64 @@
+<!--
+Name: Bassey Duke
+Project
+-->
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+		<!--Ajax and JQuery includes-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+		
+		
+		<!--javasrcipt code-->
+		<script>
+		
+			function login()
+				{
+						var URL = "http://localhost:8080/login";
+						var username = document.getElementById("username").value;
+						var password = document.getElementById("password").value;
+						$.ajax({
+					
+							type: "GET",
+							url: URL ,
+							contentType: "application/json; charset=utf-8",
+							data:"{}",
+							dataType:"html",
+							success: function(msg)
+							{
+								document.getElementById("context").innerHTML =  msg;
+							},
+							error: function(){
+								alert("Error reaching server");					
+							}
+						});
+				}
+		</script>
+		
+		<title>Login</title>
+		
+	</head>
+	
+	<body>
+		<div class="login">
+			<p style="color:black"><h1>Login</h1></p>
+			<form method="post">
+			  <div class="container">
+				<label for="password"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="password" required="required">
+				<label for="password"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="password" required="required">
+				<button type="submit" onClick="login()" class="btn btn-primary btn-block btn-large">Login</button>
+			  </div>
+			  <div class="container">
+				<span class="password"><a href="#">Need help?</a></span>
+			  </div>
+			</form>
+		</div>
+	</body>
+</html>
