@@ -1,0 +1,105 @@
+<!--
+Name: Bassey Duke
+-->
+
+<html>
+	<head>
+		<!--Ajax and JQuery includes-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+
+	<title>Home</title>
+	
+		<script>
+			function home()
+				{
+						var URL = "http://localhost:8080/home";
+						$.ajax({
+					
+							type: "GET",
+							url: URL ,
+							contentType: "application/json; charset=utf-8",
+							data:"{}",
+							dataType:"html",
+							success: function(msg)
+							{
+								document.getElementById("context").innerHTML =  msg;
+							},
+							error: function(){
+								alert("Error reaching server");					
+							}
+						});
+				}
+			function GradesAnnouncements()
+				{
+						var URL = "http://localhost:8080/Grades/Announcements";
+						$.ajax({
+					
+							type: "GET",
+							url: URL ,
+							contentType: "application/json; charset=utf-8",
+							data:"{}",
+							dataType:"html",
+							success: function(msg)
+							{
+								document.getElementById("context").innerHTML =  msg;
+							},
+							error: function(){
+								alert("Error reaching server");					
+							}
+						});
+				}	
+			
+			function AboutUs()
+			{
+					var URL = "http://localhost:8080/AboutUs";
+					$.ajax({
+				
+						type: "GET",
+						url: URL ,
+						contentType: "application/json; charset=utf-8",
+						data:"{}",
+						dataType:"html",
+						success: function(msg)
+						{
+							document.getElementById("context").innerHTML =  msg;
+						},
+						error: function(){
+							alert("Error reaching server");					
+						}
+					});
+			}
+	</script>
+	</head>
+
+	<body>
+
+		<div data-role="page" id="pageone">
+
+			<div data-role="panel" id="mypanel">
+				<a data-rel="close" onClick="home()" class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all">Home</a>
+				<a data-rel="close" onClick="GradesAnnouncements()" class="ui-btn ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all">Grades/Announcements</a>
+				<a data-rel="close" onClick="AboutUs()" class="ui-btn ui-icon-cloud ui-btn-icon-left ui-shadow ui-corner-all">About us</a>
+			</div>
+
+			<div data-role="header" id="myheader">
+				<a href="#mypanel">Menu</a>
+				<h1>Home</h1>
+			</div>	
+
+			<div id="context" class="ui-content">
+				<h2>Content</h2>
+				<h4>Welcome to our project (Group 4)</h4>
+			</div>
+			
+			<div data-role="footer">
+				<h1>CS275</h1>
+			</div>
+
+		</div> 
+
+
+	</body>
+</html>
