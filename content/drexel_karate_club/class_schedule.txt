@@ -1,0 +1,5 @@
+Monday: 6:00 - 8:00
+Tuesday: 7:00 - 9:00
+Wednesday: 6:00 - 8:00
+Thursday: 7:00 - 9:00
+Friday: 6:00 - 8:00
