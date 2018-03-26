@@ -15,7 +15,7 @@ CREATE TABLE Organizations (
 );
 
 CREATE TABLE Users (
-    email NVARCHAR(320) PRIMARY KEY,
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(64) unique NOT NULL,
     user_pass char(64) NOT NULL,
     admin_status BIT default 0,
